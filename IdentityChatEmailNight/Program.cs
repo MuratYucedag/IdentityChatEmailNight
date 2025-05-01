@@ -1,4 +1,12 @@
+using IdentityChatEmailNight.Context;
+using IdentityChatEmailNight.Entities;
+using Microsoft.AspNetCore.Identity;
+
 var builder = WebApplication.CreateBuilder(args);
+
+
+builder.Services.AddDbContext<EmailContext>();
+builder.Services.AddIdentity<AppUser,IdentityRole>().AddEntityFrameworkStores<EmailContext>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
